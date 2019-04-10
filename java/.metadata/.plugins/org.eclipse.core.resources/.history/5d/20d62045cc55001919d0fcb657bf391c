@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Application {
+	public static void main(String[] args) {
+	/*	 Scanner scanner = new Scanner(System.in);
+		 System.out.println("Enter discsize:  ");
+		 int discSize = scanner.nextInt();
+		 */
+		
+		 Disc mediumDisc = new Disc(10);
+		 Disc smallDisc = new Disc(6);
+		 Disc largeDisc = new Disc(20);
+		 
+		 
+		 ArrayList<Disc> disc = new ArrayList<Disc>();
+		 disc.add(smallDisc);
+		 disc.add(mediumDisc);
+		 Tower tower = new Tower();
+		 
+		 tower.addDisc();
+		 tower.draw();
+	}
+
+}
