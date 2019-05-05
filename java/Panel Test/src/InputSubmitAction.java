@@ -1,4 +1,4 @@
 
 public interface InputSubmitAction {
-	void onSubmit(int from , int to);
+	void onSubmit(int from , int to) throws Exception;
 }

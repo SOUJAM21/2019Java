@@ -13,20 +13,20 @@ class Tower extends JPanel {
 	int towerBaseWidth;
 	int poleWidth;
 	int poleHeight;
-	
+
 	public Tower() {
 		this.referenceX = 0;
 		this.referenceY = 350;
 		this.towerBaseWidth = 400;
 		this.poleWidth = 30;
-		this.poleHeight =300;
-		
+		this.poleHeight = 300;
 
 	}
 
 	public void drawPole(Graphics g) {
 		g.setColor(Color.red);
-		g.fillRect(referenceX+((towerBaseWidth/2)-(poleWidth/2)), referenceY-300, this.poleWidth, this.poleHeight);
+		g.fillRect(referenceX + ((towerBaseWidth / 2) - (poleWidth / 2)), referenceY - 300, this.poleWidth,
+				this.poleHeight);
 	}
 
 	public void drawBase(Graphics g) {
@@ -40,24 +40,38 @@ class Tower extends JPanel {
 		super.paintComponent(g);
 		this.drawPole(g);
 		this.drawBase(g);
-		
+
 		int currentDiscYPos = referenceY - 20;
-		int currentDiscXPos = referenceX + (towerBaseWidth/2);
-		
+		int currentDiscXPos = referenceX + (towerBaseWidth / 2);
+
 		for (int i = 0; i < discs.size(); i++) {
 			Disc d = this.discs.get(i);
 			d.draw(g, referenceX, towerBaseWidth, currentDiscYPos);
-			currentDiscYPos = currentDiscYPos -20;
-			
-		}
-		
-	}
-	//	disc.draw(g, baseXPos + 70, baseYPos - 20);
+			currentDiscYPos = currentDiscYPos - 20;
 
-	
+		}
+
+	}
+	// disc.draw(g, baseXPos + 70, baseYPos - 20);
+
 	public void addDisc(Disc disc) {
 		this.discs.add(disc);
 	}
+
+	public Disc removeDisc() throws Exception {
+		this.validateDisc();
+		Disc disc = this.discs.remove(discs.size()-1);
+		return disc;
+	}
+
+	private void validateDisc() throws Exception {
+		if (discs.size() == 0) {
+			throw new Exception("No Discs Avaliable");
+		}
+
+	}
+
+
 
 	@Override
 	public Dimension getPreferredSize() {

@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Gamer implements InputSubmitAction{
+	
+	TowerContainer towercon;
 	public void create() {
 		JFrame frame = new JFrame();
 		frame.setTitle("");
@@ -11,7 +13,7 @@ public class Gamer implements InputSubmitAction{
 
 		JPanel masterContainer = new JPanel(new GridLayout(2, 1));
 
-		TowerContainer towercon = new TowerContainer();
+		towercon = new TowerContainer();
 		towercon.create();
 		masterContainer.add(towercon);
 
@@ -25,8 +27,11 @@ public class Gamer implements InputSubmitAction{
 	}
 
 	@Override
-	public void onSubmit(int from, int to) {
+	public void onSubmit(int from, int to) throws Exception {
 		System.out.println("from: " + from + " to=" + to);
+		towercon.moveDics(from, to);
 		
 	}
+	
+	
 }

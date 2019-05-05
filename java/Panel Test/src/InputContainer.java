@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -46,13 +47,19 @@ public class InputContainer extends JFrame {
 		submitButton.addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 				  String fromText = from.getText();
-				  double fromNum = Double.parseDouble(fromText);
+				  int fromNum = Integer.parseInt(fromText);
 				  
 				  String toText = to.getText();
-				  double toNum = Double.parseDouble(toText);
+				  int toNum = Integer.parseInt(toText);
 				  
-				  JOptionPane.showMessageDialog(null, "From Tower = " + fromNum + " To Tower = " + toNum );
-				  listener.onSubmit(2,3);
+				  
+				  try {
+					listener.onSubmit(fromNum,toNum);
+				} catch (Exception e1) {
+					JLabel label = new JLabel(e1.getMessage());
+					label.setFont(new Font("Arial", Font.BOLD, 38));
+					JOptionPane.showMessageDialog(null,label,"ERROR",JOptionPane.WARNING_MESSAGE);
+				}
 				  
 			  } 
 			} );
