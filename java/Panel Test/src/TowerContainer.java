@@ -1,14 +1,15 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-public class TowerContainer {
-	public void draw(JPanel masterContainer) {
+public class TowerContainer extends JPanel {
+	ArrayList<Tower> towers = new ArrayList<Tower>();
+	public void create() {
 
-		JPanel towerContainer = new JPanel(new GridLayout(1, 3));
-		masterContainer.add(towerContainer);
+		 this.setLayout(new GridLayout(1, 3));
 
 		Tower tower1 = new Tower();
 		Disc disc = new Disc(Color.black, 300);
@@ -18,15 +19,18 @@ public class TowerContainer {
 		tower1.addDisc(disc1);
 		tower1.addDisc(disc2);
 		tower1.setPreferredSize(new Dimension(100, 100));
-		towerContainer.add(tower1);
+		this.add(tower1);
+		towers.add(tower1);
 
 		Tower tower2 = new Tower();
 		tower2.setPreferredSize(new Dimension(100, 100));
-		towerContainer.add(tower2);
+		this.add(tower2);
+		towers.add(tower2);
 
 		Tower tower3 = new Tower();
 		tower3.setPreferredSize(new Dimension(100, 100));
-		towerContainer.add(tower3);
+		this.add(tower3);
+		towers.add(tower3);
 
 		
 	}

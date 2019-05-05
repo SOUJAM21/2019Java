@@ -13,12 +13,17 @@ public class InputContainer extends JFrame {
 
 	JButton submitButton = new JButton("Submit");
 	
-	String fromText = "From";
+	String fromText = "";
 	JTextField from = new JTextField(fromText, 1);
 	
-	String toText = "To";
+	String toText = "";
 	JTextField to = new JTextField(toText, 1);
-
+	InputSubmitAction listener;
+	
+	InputContainer(InputSubmitAction listener){
+		this.listener = listener;
+	}
+	
 	public void draw(JPanel masterContainer) {
 		JPanel inputContainer = new JPanel(new GridLayout(1, 3));
 		masterContainer.add(inputContainer);
@@ -47,7 +52,7 @@ public class InputContainer extends JFrame {
 				  double toNum = Double.parseDouble(toText);
 				  
 				  JOptionPane.showMessageDialog(null, "From Tower = " + fromNum + " To Tower = " + toNum );
-				  
+				  listener.onSubmit(2,3);
 				  
 			  } 
 			} );
