@@ -17,8 +17,7 @@ public class TowerContainer extends JPanel {
 		Disc disc1 = new Disc(Color.blue, 200);
 		Disc disc2 = new Disc(Color.green, 100);
 		Disc disc = new Disc(Color.black, 300);
-		
-		
+
 		tower1.addDisc(disc);
 		tower1.addDisc(disc1);
 		tower1.addDisc(disc2);
@@ -39,27 +38,31 @@ public class TowerContainer extends JPanel {
 	}
 
 	public void moveDics(int from, int to) throws Exception {
-		
-		int userFrom = from-1;
-		int userTo = to-1;
-		
+
+		int userFrom = from - 1;
+		int userTo = to - 1;
+
 		this.validateTower(userFrom, userTo);
 		Disc disc = towers.get(userFrom).removeDisc();
 		Tower toTower = towers.get(userTo);
 		Tower fromTower = towers.get(userFrom);
-		
+
 		Boolean isAllowed = toTower.isDiscAllowed(disc);
-		if(isAllowed == true) {
+
+		  if (isAllowed == true) {
 			toTower.addDisc(disc);
+			// Boolean isGameOver = toTower.isGameOver();
 			this.repaintAll();
-		}else {
+
+		} else {
 			fromTower.addDisc(disc);
 			throw new Exception("Not Allowed");
 		}
-		
-		
-		
-		
+
+		Tower lastTower = towers.get(towers.size()-1);
+		if(lastTower.isFull()==true) {
+			System.out.println("Game Over!");
+		}
 	}
 
 	private void validateTower(int from, int to) throws Exception {
@@ -78,5 +81,6 @@ public class TowerContainer extends JPanel {
 			t.repaint();
 
 		}
+
 	}
 }

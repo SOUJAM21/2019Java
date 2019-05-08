@@ -90,6 +90,15 @@ class Tower extends JPanel {
 		return false;
 		
 	}
+	
+	public boolean isFull() {
+		if(discs.size()==3) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 
 
