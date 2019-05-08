@@ -39,10 +39,27 @@ public class TowerContainer extends JPanel {
 	}
 
 	public void moveDics(int from, int to) throws Exception {
-		this.validateTower(from, to);
-		Disc disc = towers.get(from).removeDisc();
-		towers.get(to).addDisc(disc);
-		this.repaintAll();
+		
+		int userFrom = from-1;
+		int userTo = to-1;
+		
+		this.validateTower(userFrom, userTo);
+		Disc disc = towers.get(userFrom).removeDisc();
+		Tower toTower = towers.get(userTo);
+		Tower fromTower = towers.get(userFrom);
+		
+		Boolean isAllowed = toTower.isDiscAllowed(disc);
+		if(isAllowed == true) {
+			toTower.addDisc(disc);
+			this.repaintAll();
+		}else {
+			fromTower.addDisc(disc);
+			throw new Exception("Not Allowed");
+		}
+		
+		
+		
+		
 	}
 
 	private void validateTower(int from, int to) throws Exception {

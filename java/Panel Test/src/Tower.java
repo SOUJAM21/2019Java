@@ -68,7 +68,27 @@ class Tower extends JPanel {
 		if (discs.size() == 0) {
 			throw new Exception("No Discs Avaliable");
 		}
+		
+		
 
+	}
+	
+	public boolean isDiscAllowed(Disc disc) {
+		
+		if(discs.size()==0) {
+			return true; 	// no discs, so another is allowed
+		}
+		
+		int newDiscWidth = disc.getDiscWidth();
+		Disc topDisc = this.discs.get(this.discs.size()-1);
+		int topDiscWidth = topDisc.getDiscWidth();
+		
+		if( topDiscWidth > newDiscWidth) {
+			return true;
+		}
+		
+		return false;
+		
 	}
 
 

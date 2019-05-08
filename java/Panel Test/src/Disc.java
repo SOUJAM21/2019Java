@@ -16,4 +16,8 @@ public class Disc {
 		g.setColor(this.color);
 		g.fillRect(referenceX+((towerBaseWidth/2)-(discWidth/2)), yPos, discWidth, 20);
 	}
+	
+	public int getDiscWidth() {
+		return discWidth;
+	}
 }
