@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class TowerContainer extends JPanel {
@@ -49,9 +50,8 @@ public class TowerContainer extends JPanel {
 
 		Boolean isAllowed = toTower.isDiscAllowed(disc);
 
-		  if (isAllowed == true) {
+		if (isAllowed == true) {
 			toTower.addDisc(disc);
-			// Boolean isGameOver = toTower.isGameOver();
 			this.repaintAll();
 
 		} else {
@@ -59,8 +59,8 @@ public class TowerContainer extends JPanel {
 			throw new Exception("Not Allowed");
 		}
 
-		Tower lastTower = towers.get(towers.size()-1);
-		if(lastTower.isFull()==true) {
+		Tower lastTower = towers.get(towers.size() - 1);
+		if (lastTower.isFull() == true) {
 			System.out.println("Game Over!");
 		}
 	}

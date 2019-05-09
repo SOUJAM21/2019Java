@@ -16,7 +16,7 @@ class Tower extends JPanel {
 
 	public Tower() {
 		this.referenceX = 0;
-		this.referenceY = 350;
+		this.referenceY = 600;
 		this.towerBaseWidth = 400;
 		this.poleWidth = 30;
 		this.poleHeight = 300;

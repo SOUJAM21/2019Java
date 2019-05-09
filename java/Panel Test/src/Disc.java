@@ -13,11 +13,11 @@ public class Disc {
 	}
 	
 	protected void draw(Graphics g, int referenceX, int towerBaseWidth, int yPos ) {
-		g.setColor(this.color);
+		g.setColor(this.color); 
 		g.fillRect(referenceX+((towerBaseWidth/2)-(discWidth/2)), yPos, discWidth, 20);
 	}
 	
 	public int getDiscWidth() {
-		return discWidth;
+		return discWidth; //returning discWidths for other classes to get information
 	}
 }

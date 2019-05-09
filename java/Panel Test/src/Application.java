@@ -12,7 +12,9 @@ public class Application {
 
 	public static void main(String[] args) {
 		Gamer gamer = new Gamer();
-		gamer.create();
+		gamer.create(); //Calling gamer objects
+		
+		
 	}
 
 }
