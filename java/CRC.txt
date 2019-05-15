@@ -1,0 +1,25 @@
+Class:Application
+Responsiblites: Start the program and call the Gamer
+Collab: Gamer
+
+Class:Disc
+Responsiblites: draws discs
+Collab: None
+
+Class:Tower
+Responsiblites: draws base and pole of tower. creates array of discs and adds discs to arraylist. paints the tower and discs on it. adds and removes discs from tower. validates discs. moves discs.
+Collab: Disc
+
+Class:TowerContainer
+Responsiblites: creates an array of towers and adds towers to arraylist along with discs on the tower. moves discs. validates discs. repaints the towers and discs after moving.
+Collab: Tower & Disc
+
+
+Class:InputContainer
+Responsiblites: draws the input boxes and submit button
+Collab: None
+
+
+Class:Gamer
+Responsiblites: creates one frame with a huge master container which is split into two parts the towercontainer and inputcontainer and calls on the create functions in both containers and sets the frame visible.
+Collab: TowerContainer & InputContainer
